@@ -1,0 +1,26 @@
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+.movie-list {
+    list-style: none
+}
+
+.movie-list li {
+    float: left;
+    width: 140px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+}
+
+.movie-list li img {
+    height: 200px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.movie-list li p {
+    height: 44px;
+}

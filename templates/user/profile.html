@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user page</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .avatar {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>用户资料</h3>
+    <p>{{ user.id }}</p>
+    <p>{{ user.username }}</p>
+    <p>{{ user.password }}</p>
+    <p>
+        <img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">
+    </p>
+    <div>
+        <h3>上传头像</h3>
+        <!--如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"-->
+        <form action="/user/upload/avatar" method="post" enctype="multipart/form-data">
+            <p>
+                <input id="upload-file" type="file" name="avatar" required>
+            </p>
+            <button id="submit-button">上传</button>
+        </form>
+    </div>
+    <script src="/static/js/upload.js"></script>
+</body>
+</html>

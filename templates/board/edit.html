@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>board edit page</title>
+</head>
+<body>
+    <form action="/board/update" method="post">
+        <p>
+            <input type="hidden" name="id" value="{{ board.id }}">
+        </p>
+        <p>
+            <input type="text" name="title" value="{{ board.title }}">
+        </p>
+        <button>更新 board</button>
+    </form>
+</body>
+</html>

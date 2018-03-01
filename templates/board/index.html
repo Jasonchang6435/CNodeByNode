@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>board page</title>
+</head>
+<body>
+    <p>board list</p>
+    <a href="/board/new">新增 board</a>
+    {{ flash.message }}
+    <ul>
+        {% for b in boards %}
+            <li>
+                <span>{{ b.title }}</span>
+                <a href="/board/delete/{{ b.id }}?token={{ token }}">删除</a>
+                <a href="/board/edit/{{ b.id }}">编辑</a>
+            </li>
+        {% else %}
+            <li>暂时还没有 board</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--用户名, 会出现在网页源码中-->
+    {# 用户名 来自服务器端的注释, 不会出现在网页源码中 #}
+    <p>当前用户: {{ user.username }}</p>
+    <p>
+        <a href="/topic">topic</a>
+    </p>
+    <p>
+        <a href="/board">board</a>
+    </p>
+    <a href="/login">登录</a>
+    <a href="/register">注册</a>
+    <a href="/logout">注销</a>
+    <script>
+        var ajax = (method, path, data, callback) => {
+            var r = new XMLHttpRequest()
+            r.open(method, path, true)
+            r.setRequestHeader('Content-Type', 'application/json')
+            r.onreadystatechange = function() {
+                if (r.readyState == 4) {
+                    callback(r.response)
+                }
+            }
+            r.send(data)
+        }
+
+        var fetch = (url, callback) => {
+            ajax('GET', url, '', function(r) {
+                console.log('debug raw response', r, r.length)
+                var data = JSON.parse(r)
+                callback(data)
+            })
+        }
+
+        var __main = () => {
+            var url = '/api/topic/all'
+            var response = (r) => {
+                console.log('debug r', r)
+            }
+            fetch(url, response)
+        }
+
+        __main()
+    </script>
+</body>
+</html>

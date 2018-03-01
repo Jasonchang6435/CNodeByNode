@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bbs club</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/lib/editor/editor.css">
+    <link rel="stylesheet" href="/static/lib/webuploader/webuploader.css">
+    <script src="/static/lib/jquery-3.0.0.min.js"></script>
+    <script src="/static/lib/markdownit.js"></script>
+    <script src="/static/lib/webuploader/webuploader.withoutimage.js"></script>
+    <script src="/static/lib/editor/editor.js"></script>
+    <script src="/static/lib/editor/ext.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="sidebar">
+        <div class="panel">
+            <div class="inner">
+                <a href="/topic/new" class="create_topic_btn">
+                    <span class="span-success">发布话题</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <!--这个 board 并不在数据库中, 直接判断当前的 board_id 是否为 -1-->
+                <!--如果是 -1, 就添加 current-tab 这个 class, 否则不添加-->
+                <a href="/topic" class="topic-tab current-tab">
+                    全部
+                </a>
+                {% for b in boards %}
+                    {% if b.id == board_id %}
+                        {% set cls = 'current-tab' %}
+                    {% else %}
+                        {% set cls = '' %}
+                    {% endif %}
+                    <a href="/topic?board_id={{ b.id }}" class="topic-tab {{ cls }}">
+                        {{ b.title }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    {% for t in topics %}
+                    <div class="cell">
+                        <div class="topic_title_wrapper">
+                            <a class="topic_title" href="/topic/detail/{{ t.id }}">
+                                {{ t.title }}
+                            </a>
+                            <!--topic 的回复数和浏览数-->
+                            <!--| 的语法是 filter, 实际上就是我们在 linux 课上讲的管道-->
+                            <!--var l = t.replies()-->
+                            <!--length(l)-->
+                            <!--length(t.replies())-->
+                            <span>{{ t.replies() | length }} / {{ t.views }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var editor = new Editor();
+        editor.render($('.editor')[0]);
+    })();
+</script>
+</body>
+</html>

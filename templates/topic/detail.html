@@ -14,97 +14,236 @@
     <script src="/static/lib/editor/ext.js"></script>
 </head>
 <body>
-<div id="main">
-    <div id="content">
-        <div class='panel'>
-            <div class='header topic_header'>
-                <span class="topic_full_title">
-                    {{ topic.title }}
-                </span>
-                <div class="changes">
-                    <span>
-                        <!-- | 是 nunjcks 里的过滤器操作符-->
-                        <!--下面的语法相当于调用了 formattedTime 函数-->
-                        <!--formattedTime(topic.ct)-->
-                        发布于 {{ topic.ct | formattedTime }}
-                    </span>
-                    <span>
-                        作者
-                        <a href="/user/profile/{{ topic.user().id }}">{{ topic.user().username }}</a>
-                    </span>
-                    <span>
-                        {{ topic.views }} 次浏览
-                    </span>
-                    <span>
-                        {# topic.board() 拿到的是 board 实例 #}
-                        来自 {{ topic.board().title }}
-                    </span>
-                </div>
+    <!-- navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">
+                    <img src="http://o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
+                </a>
+                <form id="search_form" class="navbar-search" action="/search">
+                    <input type="text" id="q" name="q" class="search-query span3" value="" disabled="disabled" placeholder="不给用~">
+                </form>
+                <ul class="nav pull-right">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/getstart">新手入门</a></li>
+                    <li><a href="/api">API</a></li>
+                    <li><a href="/about" target="">关于</a></li>
+                    {% if user.username == "游客" %}
+                    <li><a href="/register">注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    {% else %}
+                    <li><a>用户: {{ user.username }}</a></li>
+                    <li><a href="/logout">注销</a></li>
+                    {% endif %}
+                </ul>
+                <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
             </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="sidebar">
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">作者</span>
+                </div>
+                <div class="inner">
+                    <div class="user_card">
+                        <div>
+                            <a class="user_avatar" href="/user/atian25">
+                                <img src="https://avatars1.githubusercontent.com/u/227713?v=3&amp;s=120" title="atian25">
+                            </a>
+                            <span class="user_name"><a class="dark" href="/user/atian25">atian25</a></span>
 
-            <div class='inner topic'>
-                <div class='topic_content'>
-                    <div class="markdown-text">
-                        {{ topic.content }}
+                            <div class="board clearfix">
+                                <div class="floor">
+                                    <span class="big">积分: 4505 </span>
+                                </div>
+                            </div>
+                            <div class="space clearfix"></div>
+                            <span class="signature">
+                                “追求卓越，成功就会在不经意间追上你。”
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class='panel'>
-        <div class='header'>
-            <span class='col_fade'>
-                <!-- 过滤器 -->
-                <!--findBetween('开始花括号 和 结束花括号')-->
-                <!--var l = find('divider')-->
-                <!--func = l[1]-->
-                <!--func()-->
-                {{ topic.replies() | length }} 回复
-            </span>
-        </div>
-        {% for r in topic.replies() %}
-        <div class='cell reply_area reply_item'>
-            <div class='author_content'>
-                <a href="/user/leiwei1991" class="user_avatar">
-                    <img src="/user/avatar/{{ r.user().avatar }}"
-                         title="{{ r.user().username }}"/>
-                </a>
-                <div class='user_info'>
-                    <a class='dark reply_author'>
-                        {{ r.user().username }}
+            <div class="panel">
+                <div class="inner ads">
+                    <a href="https://0x7.me/UDyj" target="_blank" class="banner sponsor_outlink" data-label="qiniu-sidebar">
+                        <img src="//dn-cnode.qbox.me/Fv9R31Y6ySKKJi95ldk9TRkJ7o5O">
                     </a>
-                    <a class="reply_time">
-                        {{ loop.index }}楼 • 2 天前
+                    <div class="sep10"></div>
+                    <a href="https://www.aliyun.com/product/nodejs?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">
+                        <img src="//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="https://render.alipay.com/p/s/taobaonpm_click/image_click_25" target="_blank" class="banner sponsor_outlink" data-label="aliyun">
+                        <img src="//dn-cnode.qbox.me/Fu6b5DIbI_Va2i5oFjIByRGizFuP">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=cnodejs&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=cnodejs" target="_blank" class="banner sponsor_outlink" data-label="ucloud-banner">
+                        <img src="//dn-cnode.qbox.me/FgQS-GQDfqwAD_v0NuhyYUOUk5MG">
                     </a>
                 </div>
-                <div class='user_action'>
-                    <span>
-                        <i class="fa up_btn
-                          fa-thumbs-o-up
-                          invisible" title="喜欢"></i>
-                        <span class="up-count">
-                        </span>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">作者其它话题</span>
+                </div>
+                <div class="inner">
+                    <ul class="unstyled">
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/502f0b07f767cc9a517baf87" title="child_process.spawn 乱码?">child_process.spawn 乱码?</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/59f98c34c8ef9425668ac1fe" title="Node 8 LTS 有 async 了很兴奋？ 来，说说这 2 段代码的区别。">Node 8 LTS 有 async 了很兴奋？ 来，说说这 2 段代码的区别。</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/59faded263db6ac51afed9c7" title="[eggjs-feed-05] Node 8 LTS + Egg 2.x 计划">[eggjs-feed-05] Node 8 LTS + Egg 2.x 计划</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/596d770c8f05de0819fdb2b5" title="做个调查，你的 Node 应用有单元测试吗？">做个调查，你的 Node 应用有单元测试吗？</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/58d0fb3517f61387400b7e15" title="Egg.js 1.0.0 正式发布 - 企业级 Node.js 框架">Egg.js 1.0.0 正式发布 - 企业级 Node.js 框架</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">无人回复的话题</span>
+                </div>
+                <div class="inner">
+                    <ul class="unstyled">
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/5a97a911543e098150cb70c1" title="有人觉得nodeclub的数据库设计的不太合理吗？">有人觉得nodeclub的数据库设计的不太合理吗？</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/5a976f502580af301494a961" title="Antd 现在有没有动态修改主题颜色的方法？">Antd 现在有没有动态修改主题颜色的方法？</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/5a96f2068d6e16e56bb80a11" title="快速排序（《图解算法》笔记）">快速排序（《图解算法》笔记）</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/5a96cb692580af301494a941" title="require的探究">require的探究</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dark topic_title" href="http://cnodejs.org/topic/5a967cc071327bb413bbff78" title="求助:npm 报错 Error: EEXIST: file already exists, mkdir">求助:npm 报错 Error: EEXIST: file already exists, mkdir</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class='panel'>
+                <div class='header topic_header'>
+                    <span class="topic_full_title">
+                        {{ topic.title }}
                     </span>
+                    <div class="changes">
+                        <span>
+                            <!-- | 是 nunjcks 里的过滤器操作符-->
+                            <!--下面的语法相当于调用了 formattedTime 函数-->
+                            <!--formattedTime(topic.ct)-->
+                            发布于 {{ topic.ct | formattedTime }}
+                        </span>
+                        <span>
+                            作者
+                            <a href="/user/profile/{{ topic.user().id }}">{{ topic.user().username }}</a>
+                        </span>
+                        <span>
+                            {{ topic.views }} 次浏览
+                        </span>
+                        <span>
+                            {# topic.board() 拿到的是 board 实例 #}
+                            来自 {{ topic.board().title }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class='inner topic'>
+                    <div class='topic_content'>
+                        <div class="markdown-text">
+                            {{ topic.content }}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class='reply_content from-leiwei1991'>
-                <div class="markdown-text">
-                    <!--nunjucks 默认开启了 xss 防护-->
-                    <!--使用 | safe 会关掉这个防护-->
-                    {{ r.content }}
+            <div class='panel'>
+                <div class='header'>
+                <span class='col_fade'>
+                    <!-- 过滤器 -->
+                    <!--findBetween('开始花括号 和 结束花括号')-->
+                    <!--var l = find('divider')-->
+                    <!--func = l[1]-->
+                    <!--func()-->
+                    {{ topic.replies() | length }} 回复
+                </span>
+                </div>
+                {% for r in topic.replies() %}
+                <div class='cell reply_area reply_item'>
+                    <div class='author_content'>
+                        <a href="/user/leiwei1991" class="user_avatar">
+                            <img src="/user/avatar/{{ r.user().avatar }}" title="{{ r.user().username }}"/>
+                        </a>
+                        <div class='user_info'>
+                            <a class='dark reply_author'>{{ r.user().username }}</a>
+                            <a class="reply_time">
+                                {{ loop.index }}楼 • 2 天前
+                            </a>
+                        </div>
+                        <div class='user_action'>
+                        <span>
+                            <i class="fa up_btn fa-thumbs-o-up invisible" title="喜欢"></i>
+                            <span class="up-count"></span>
+                        </span>
+                        </div>
+                    </div>
+                    <div class='reply_content from-leiwei1991'>
+                        <div class="markdown-text">
+                            <!--nunjucks 默认开启了 xss 防护-->
+                            <!--使用 | safe 会关掉这个防护-->
+                            {{ r.content }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div>
+                    <form action="/reply/add?test=1" method="post">
+                        <input type="hidden" name="topic_id" value="{{ topic.id }}">
+                        <textarea name="content"></textarea>
+                        <button>添加回复</button>
+                    </form>
                 </div>
             </div>
         </div>
-        {% endfor %}
-        <div>
-            <form action="/reply/add?test=1" method="post">
-                <input type="hidden" name="topic_id" value="{{ topic.id }}">
-                <textarea name="content"></textarea>
-                <button>添加回复</button>
-            </form>
-        </div>
+
     </div>
-</div>
 </body>
 </html>

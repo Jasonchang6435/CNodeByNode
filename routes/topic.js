@@ -42,9 +42,14 @@ topic.get('/detail/:id', (request, response) => {
     // const args = {
     //     topic: t,
     // }
+	//
+	const userList = User.all()
+	const u = currentUser(request)
     const m = Topic.get(id)
     const args = {
         topic: m,
+		users: userList,
+		user: u,
     }
     response.render('topic/detail.html', args)
 })

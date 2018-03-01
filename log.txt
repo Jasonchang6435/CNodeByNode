@@ -152,3 +152,85 @@
 }
 14:2:3 debug token,0.869517299427994
 14:8:43 listening server at http://127.0.0.1:3000
+14:23:28 listening server at http://127.0.0.1:3000
+14:45:47 listening server at http://127.0.0.1:3000
+15:25:42 debug u,{
+  "id": 2,
+  "username": "test",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+15:51:21 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+16:8:36 listening server at http://127.0.0.1:3000
+16:9:0 如果登录了就什么都不做, 继续下一个请求函数
+16:21:55 如果登录了就什么都不做, 继续下一个请求函数
+16:46:41 如果登录了就什么都不做, 继续下一个请求函数
+16:46:41 debug request file,[object Object]
+16:46:41 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "d907f2eedd7d735361c271609945fda0"
+}
+16:46:41 如果登录了就什么都不做, 继续下一个请求函数
+16:51:30 如果登录了就什么都不做, 继续下一个请求函数
+16:54:32 如果登录了就什么都不做, 继续下一个请求函数
+16:54:55 如果登录了就什么都不做, 继续下一个请求函数
+16:54:55 debug request file,[object Object]
+16:54:55 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "371bddbed8b828db942fd27fa9db3786"
+}
+16:54:55 如果登录了就什么都不做, 继续下一个请求函数
+16:54:59 如果登录了就什么都不做, 继续下一个请求函数
+16:55:23 如果登录了就什么都不做, 继续下一个请求函数
+16:55:29 如果登录了就什么都不做, 继续下一个请求函数
+16:55:29 debug request file,[object Object]
+16:55:29 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "0ebd65fb0496b9397103820f344fbc56"
+}
+16:55:29 如果登录了就什么都不做, 继续下一个请求函数
+17:1:42 登录检测: 没有登录,GET
+17:1:51 debug u,{
+  "id": 2,
+  "username": "test",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+17:1:51 如果登录了就什么都不做, 继续下一个请求函数
+17:1:54 如果登录了就什么都不做, 继续下一个请求函数
+17:2:0 如果登录了就什么都不做, 继续下一个请求函数
+17:2:0 debug request file,[object Object]
+17:2:0 debug u,{
+  "id": 2,
+  "username": "test",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "4ad0d111ceaca295a2bcf4fc57abfce5"
+}
+17:2:0 如果登录了就什么都不做, 继续下一个请求函数
+17:2:5 如果登录了就什么都不做, 继续下一个请求函数
+17:2:25 如果登录了就什么都不做, 继续下一个请求函数

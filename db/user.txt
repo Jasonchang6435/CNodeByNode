@@ -5,6 +5,14 @@
     "password": "6aa61ba1213b734b79cd659110994562d085d326",
     "note": "",
     "role": 2,
-    "avatar": ""
+    "avatar": "0ebd65fb0496b9397103820f344fbc56"
+  },
+  {
+    "id": 2,
+    "username": "test",
+    "password": "6aa61ba1213b734b79cd659110994562d085d326",
+    "note": "",
+    "role": 2,
+    "avatar": "4ad0d111ceaca295a2bcf4fc57abfce5"
   }
 ]

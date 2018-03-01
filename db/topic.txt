@@ -91,7 +91,7 @@
   },
   {
     "id": 11,
-    "views": 0,
+    "views": 1,
     "title": "CNode要招聘了",
     "content": "招聘全栈工程师\r\nbest",
     "ct": 1518272209139,
@@ -128,5 +128,15 @@
     "ut": 1518272721424,
     "user_id": 1,
     "board_id": 5
+  },
+  {
+    "id": 15,
+    "views": 11,
+    "title": "新论坛做好啦",
+    "content": "这是一个用node express 做的orm论坛 安全很好  代码设计很优雅哦 嘤嘤嘤",
+    "ct": 1519890225051,
+    "ut": 1519890225051,
+    "user_id": 2,
+    "board_id": 1
   }
 ]

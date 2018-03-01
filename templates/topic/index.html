@@ -22,7 +22,7 @@
                 <img src="http://o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
             </a>
             <form id="search_form" class="navbar-search" action="/search">
-                <input type="text" id="q" name="q" class="search-query span3" value="">
+                <input type="text" id="q" name="q" class="search-query span3" value="" disabled="disabled" placeholder="不给用~">
             </form>
             <ul class="nav pull-right">
                 <li><a href="/">首页</a></li>
@@ -46,15 +46,6 @@
     </div>
 </div>
 <div id="main">
-    <!--<div id="sidebar">-->
-        <!--<div class="panel">-->
-            <!--<div class="inner">-->
-                <!--<a href="/topic/new" class="create_topic_btn">-->
-                    <!--<span class="span-success">发布话题</span>-->
-                <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
     <div id="sidebar">
         {% if user.username == "游客" %}
         <div class="panel">
@@ -62,11 +53,11 @@
                 <p>CNode：Node.js专业中文社区</p>
                 <div>
                     您可以
-                    <a href="/signin">登录</a>
+                    <a href="/login">登录</a>
                     或
-                    <a href="/signup">注册</a>
+                    <a href="/register">注册</a>
                     , 也可以
-                    <a href="/auth/github">
+                    <a>
                       <span class="span-info">
                         通过 GitHub 登录
                       </span>

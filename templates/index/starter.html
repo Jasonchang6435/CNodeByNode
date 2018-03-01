@@ -1,0 +1,221 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="CNode：Node.js专业中文社区">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="nodejs, node, express, connect, socket.io">
+    <!-- see http://smerity.com/articles/2013/where_did_all_the_http_referrers_go.html -->
+    <meta name="referrer" content="always">
+    <meta name="author" content="EDP@TaoBao">
+    <meta property="wb:webmaster" content="617be6bd946c6b96">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="/rss">
+    <link rel="icon" href="//o4j806krb.qnssl.com/public/images/cnode_icon_32.png" type="image/x-icon">
+    <!-- style -->
+    <link rel="stylesheet" href="//o4j806krb.qnssl.com/public/stylesheets/index.min.23a5b1ca.min.css" media="all">
+    <!-- scripts -->
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//o4j806krb.qnssl.com/public/index.min.f7c13f64.min.js"></script>
+    <title>Node.js 新手入门 - CNode技术社区</title>
+    <meta content="_csrf" name="csrf-param">
+    <meta content="bajZ0tam-WCFtbdV18DllHnzBLnHLDkfdkAk" name="csrf-token">
+</head>
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">
+                    <img src="http://o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
+                </a>
+                <form id="search_form" class="navbar-search" action="/search">
+                    <input type="text" id="q" name="q" class="search-query span3" value="" disabled="disabled" placeholder="不给用~">
+                </form>
+                <ul class="nav pull-right">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/getstart">新手入门</a></li>
+                    <li><a href="/api">API</a></li>
+                    <li><a href="/about" target="">关于</a></li>
+                    {% if user.username == "游客" %}
+                    <li><a href="/register">注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    {% else %}
+                    <li><a>用户: {{ user.username }}</a></li>
+                    <li><a href="/logout">注销</a></li>
+                    {% endif %}
+                </ul>
+                <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="sidebar">
+            {% if user.username == "游客" %}
+            <div class="panel">
+                <div class="inner">
+                    <p>CNode：Node.js专业中文社区</p>
+                    <div>
+                        您可以
+                        <a href="/login">登录</a>
+                        或
+                        <a href="/register">注册</a>
+                        , 也可以
+                        <a>
+                              <span class="span-info">
+                                通过 GitHub 登录
+                              </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="panel">
+                <div class="inner">
+                    <a href="/topic/new" class="create_topic_btn">
+                        <span class="span-success">发布话题</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="panel">
+                <div class="inner ads">
+                    <a href="http://click.aliyun.com/m/7306/" target="_blank" class="banner sponsor_outlink" data-label="aliyun">
+                        <img src="//img.alicdn.com/tps/TB1FfdvOXXXXXX1apXXXXXXXXXX-270-65.jpg">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">
+                        <img src="//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=cnodejs&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=cnodejs" target="_blank" class="banner sponsor_outlink" data-label="ucloud-banner">
+                        <img src="//dn-cnode.qbox.me/FgQS-GQDfqwAD_v0NuhyYUOUk5MG">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="https://0x7.me/UDyj" target="_blank" class="banner sponsor_outlink" data-label="qiniu-sidebar">
+                        <img src="//dn-cnode.qbox.me/Fv9R31Y6ySKKJi95ldk9TRkJ7o5O">
+                    </a>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">友情社区</span>
+                </div>
+                <div class="inner">
+                    <ol class="friendship-community">
+                        <li>
+                            <a href="https://ruby-china.org/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/ruby-china-20150529.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="http://golangtc.com/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/golangtc-logo.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="http://phphub.org/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/phphub-logo.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="https://testerhome.com/" target="_blank">
+                                <img src="//dn-cnode.qbox.me/FjLUc7IJ2--DqS706etPQ1EGajxK">
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">客户端二维码</span>
+                </div>
+                <div class="inner cnode-app-download">
+                    <img width="200" src="//dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU">
+                    <br>
+                    <a href="https://github.com/soliury/noder-react-native" target="_blank">客户端源码地址</a>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="panel">
+                <div class="header">
+                    <ul class="breadcrumb">
+                        <li><a href="/">主页</a><span class="divider">/</span></li>
+                        <li class="active">Node.js 新手入门</li>
+                    </ul>
+                </div>
+                <div class="inner topic">
+                    <div class="topic_content">
+                        <div class="markdown-text">
+                            <h2>Node.js 入门</h2>
+                            <p>《<strong>快速搭建 Node.js 开发环境以及加速 npm</strong>》</p>
+                            <p><a href="http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html" target="_blank">http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html</a></p>
+                            <p>《<strong>Node.js 包教不包会</strong>》</p>
+                            <p><a href="https://github.com/alsotang/node-lessons" target="_blank">https://github.com/alsotang/node-lessons</a></p>
+                            <p>《<strong>ECMAScript 6入门</strong>》</p>
+                            <p><a href="http://es6.ruanyifeng.com/" target="_blank">http://es6.ruanyifeng.com/</a></p>
+                            <p>《<strong>七天学会NodeJS</strong>》</p>
+                            <p><a href="https://github.com/nqdeng/7-days-nodejs" target="_blank">https://github.com/nqdeng/7-days-nodejs</a></p>
+                            <h2>Node.js 资源</h2>
+                            <p>《<strong>前端资源教程</strong>》</p>
+                            <p><a href="https://cnodejs.org/topic/56ef3edd532839c33a99d00e" target="_blank">https://cnodejs.org/topic/56ef3edd532839c33a99d00e</a></p>
+                            <p>《<strong>国内的 npm 镜像源</strong>》</p>
+                            <p><a href="http://cnpmjs.org/" target="_blank">http://cnpmjs.org/</a></p>
+                            <p>《<strong>node weekly</strong>》</p>
+                            <p><a href="http://nodeweekly.com/issues" target="_blank">http://nodeweekly.com/issues</a></p>
+                            <p>《<strong>node123-<em>node.js中文资料导航</em></strong>》</p>
+                            <p><a href="https://github.com/youyudehexie/node123" target="_blank">https://github.com/youyudehexie/node123</a></p>
+                            <p>《<strong>A curated list of delightful Node.js packages and resources</strong>》</p>
+                            <p><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank">https://github.com/sindresorhus/awesome-nodejs</a></p>
+                            <p>《<strong>Node.js Books</strong>》</p>
+                            <p><a href="https://github.com/pana/node-books" target="_blank">https://github.com/pana/node-books</a></p>
+                            <h2>Node.js 名人</h2>
+                            <p>《<strong>名人堂</strong>》</p>
+                            <p><a href="https://github.com/cnodejs/nodeclub/wiki/%E5%90%8D%E4%BA%BA%E5%A0%82" target="_blank">https://github.com/cnodejs/nodeclub/wiki/名人堂</a></p>
+                            <h2>Node.js 服务器</h2>
+                            <p>新手搭建 Node.js 服务器，推荐使用无需备案的 <a href="https://www.digitalocean.com/?refcode=eba02656eeb3" target="_blank">DigitalOcean(https://www.digitalocean.com/)</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="backtotop" style="top: -47px; right: 0px;">回到顶部</div>
+    <div id="footer">
+        <div id="footer_main">
+            <div class="links">
+                <a class="dark" href="/rss">RSS</a>
+                |
+                <a class="dark" href="https://github.com/cnodejs/nodeclub/">源码地址</a>
+            </div>
+
+            <div class="col_fade">
+
+                <p>CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
+                <p>服务器赞助商为
+                    <a href="http://www.ucloud.cn/?utm_source=zanzhu&amp;utm_campaign=cnodejs&amp;utm_medium=display&amp;utm_content=yejiao&amp;ytag=cnodejs_logo" target="_blank" class="sponsor_outlink" data-label="ucloud_bottom">
+                        <img src="//dn-cnode.qbox.me/FuIpEaM9bvsZKnQ3QfPtBHWQmLM9" title="ucloud" alt="ucloud" width="92px">
+                    </a>
+                    ，存储赞助商为
+                    <a href="http://www.qiniu.com/?ref=cnode" target="_blank" class="sponsor_outlink" data-label="qiniu_bottom">
+                        <img src="//dn-cnode.qbox.me/Fg0jtDIcTqVC049oVu5-sn6Om4NX" title="七牛云存储" alt="七牛云存储" width="115px">
+                    </a>
+                    ，由<a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="sponsor_outlink" data-label="alinode_bottom">
+                        <img src="//dn-cnode.qbox.me/FpMZk31PDyxkC8yStmMQL4XroaGD" title="alinode" alt="alinode" height="54px" width="166px">
+                    </a>提供应用性能服务。
+                </p>
+                <p>新手搭建 Node.js 服务器，推荐使用无需备案的 <a href="https://www.digitalocean.com/?refcode=eba02656eeb3">DigitalOcean(https://www.digitalocean.com/)</a></p>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="sidebar-mask"></div>
+</body>
+</html>

@@ -54,5 +54,15 @@ index.get('/logout', (request, response) => {
     response.redirect('/')
 })
 
+index.get('/getstart', (request, response) => {
+	const userList = User.all()
+	const u = currentUser(request)
+	const args = {
+	   users: userList,
+	   user: u,
+	}
+	response.render('index/starter.html', args)
+})
+
 module.exports = index
 

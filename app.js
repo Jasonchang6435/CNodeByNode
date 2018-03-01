@@ -87,3 +87,10 @@ if (require.main === module) {
     const host = 'localhost'
     run(port, host)
 }
+
+/*TODO
+* new user profile need upload headimg
+* navibar need to jump user profile
+*
+* nunjucks template
+* */

@@ -40,3 +40,114 @@
 22:7:31 debug ms,[object Object]
 22:9:37 debug ms,[object Object]
 22:9:37 debug ms,[object Object]
+9:50:8 listening server at http://127.0.0.1:3000
+9:52:16 listening server at http://127.0.0.1:3000
+9:52:21 debug ms,[object Object]
+10:8:1 listening server at http://127.0.0.1:3000
+10:8:28 listening server at 'http://127.0.0.1:3000'
+10:8:56 listening server athttp://127.0.0.1:3000
+10:9:13 listening server at http://127.0.0.1:3000
+10:10:1 debug ms,[object Object]
+10:11:29 listening server at http://127.0.0.1:3000
+10:11:33 debug ms,[object Object]
+10:13:17 listening server at http://127.0.0.1:3000
+10:13:27 debug ms,[object Object]
+10:20:52 debug ms,[object Object]
+10:21:38 debug ms,[object Object]
+10:29:33 listening server at http://127.0.0.1:3000
+10:29:40 debug ms,[object Object]
+10:43:57 debug ms,[object Object]
+10:44:46 debug ms,[object Object]
+10:44:52 debug ms,[object Object]
+10:53:36 listening server at http://127.0.0.1:3000
+10:53:58 debug ms,[object Object]
+11:35:18 listening server at http://127.0.0.1:3000
+11:35:19 debug ms,[object Object]
+11:35:42 debug ms,[object Object]
+11:40:32 debug ms,[object Object]
+11:41:0 debug ms,[object Object]
+11:41:2 debug ms,[object Object]
+11:41:13 debug ms,[object Object]
+11:46:28 debug ms,[object Object]
+11:50:55 listening server at http://127.0.0.1:3000
+11:52:28 listening server at http://127.0.0.1:3000
+11:52:50 listening server at http://127.0.0.1:3000
+11:58:26 listening server at http://127.0.0.1:3000
+13:55:14 listening server at http://127.0.0.1:3000
+13:57:4 listening server at http://127.0.0.1:3000
+13:57:17 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+13:58:44 listening server at http://127.0.0.1:3000
+13:59:47 listening server at http://127.0.0.1:3000
+13:59:59 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+14:1:17 listening server at http://127.0.0.1:3000
+14:1:23 debug ms,[object Object]
+14:1:24 debug ms,{
+  "id": 1,
+  "title": "精华",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 2,
+  "title": "分享",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 3,
+  "title": "问答",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 4,
+  "title": "招聘",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 5,
+  "title": "客户端测试",
+  "ct": 1496493698282,
+  "ut": 1496493698282
+}
+14:1:24 debug token,0.9186972539507421
+14:1:59 listening server at http://127.0.0.1:3000
+14:2:2 debug ms,[object Object]
+14:2:3 debug ms,{
+  "id": 1,
+  "title": "精华",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 2,
+  "title": "分享",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 3,
+  "title": "问答",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 4,
+  "title": "招聘",
+  "ct": 1496493690012,
+  "ut": 1496493690012
+},{
+  "id": 5,
+  "title": "客户端测试",
+  "ct": 1496493698282,
+  "ut": 1496493698282
+}
+14:2:3 debug token,0.869517299427994

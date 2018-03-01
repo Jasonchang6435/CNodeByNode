@@ -5,7 +5,7 @@ const Board = require('../models/board')
 const Model = Topic
 const { log } = require('../utils')
 const { currentUser, loginRequired } = require('./main')
-
+const User = require('../models/user')
 // 使用 express.Router 可以创建模块化的路由
 // 类似我们以前实现的形式
 const topic = express.Router()
@@ -20,10 +20,15 @@ topic.get('/', (request, response) => {
     // }
     // const ms = Model.all(board_id)
     const boards = Board.all()
+    //
+	const userList = User.all()
+	const u = currentUser(request)
     const args = {
         topics: ms,
         boards: boards,
         board_id: board_id,
+		users: userList,
+        user: u,
     }
     // log('debug args', args)
     response.render('topic/index.html', args)

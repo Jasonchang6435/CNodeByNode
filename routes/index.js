@@ -1,20 +1,19 @@
 const express = require('express')
-
 const User = require('../models/user')
 const { log } = require('../utils')
 const { currentUser } = require('./main')
-
 const index = express.Router()
 
 index.get('/', (request, response) => {
-    const userList = User.all()
-    const u = currentUser(request)
-    const args = {
-        users: userList,
-        user: u,
-    }
-    console.log('debug u and args', u, args)
-    response.render('index/index.html', args)
+	response.redirect('/topic')
+	// const userList = User.all()
+	// const u = currentUser(request)
+	// const args = {
+     //    users: userList,
+     //    user: u,
+	// }
+	// console.log('debug u and args', u, args)
+	// response.render('index/index.html', args)
 })
 
 index.get('/login', (request, response) => {
@@ -33,7 +32,8 @@ index.post('/login', (request, response) => {
     if (u.validateAuth(form)) {
         // 直接指定 request.session 的 key, 然后通过这个 key 来获取设置的值
         request.session.uid = u.id
-        const nextUrl = form.next_url || '/'
+        log("debug u", u)
+        const nextUrl = form.next_url || '/topic'
         response.redirect(nextUrl)
     }
 })

@@ -64,5 +64,25 @@ index.get('/getstart', (request, response) => {
 	response.render('index/starter.html', args)
 })
 
+index.get('/api', (request, response) => {
+	const userList = User.all()
+	const u = currentUser(request)
+	const args = {
+	   users: userList,
+	   user: u,
+	}
+	response.render('index/api.html', args)
+})
+
+index.get('/about', (request, response) => {
+	const userList = User.all()
+	const u = currentUser(request)
+	const args = {
+	   users: userList,
+	   user: u,
+	}
+	response.render('index/abouts.html', args)
+})
+
 module.exports = index
 

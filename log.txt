@@ -234,3 +234,19 @@
 17:2:0 如果登录了就什么都不做, 继续下一个请求函数
 17:2:5 如果登录了就什么都不做, 继续下一个请求函数
 17:2:25 如果登录了就什么都不做, 继续下一个请求函数
+19:49:28 listening server at http://127.0.0.1:3001
+20:26:46 listening server at http://127.0.0.1:3000
+20:26:49 debug ms,[object Object]
+20:27:18 listening server at http://127.0.0.1:3000
+21:15:55 listening server at http://127.0.0.1:3000
+21:50:25 listening server at http://127.0.0.1:3001
+21:52:21 listening server at http://127.0.0.1:3000
+21:52:43 debug u,{
+  "id": 1,
+  "username": "yuan",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "0ebd65fb0496b9397103820f344fbc56"
+}
+21:52:46 如果登录了就什么都不做, 继续下一个请求函数

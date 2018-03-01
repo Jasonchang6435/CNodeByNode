@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "views": 0,
+    "views": 1,
     "title": "基于 Nest.js (nodejs 版的 spring ) 和 Typescript 的 Notadd 2.0 Beta1 发布",
     "content": "基于 Nest.js (nodejs 版的 spring ) 和 Typescript 的 Notadd 2.0 Beta1 发布\r\n的内容",
     "ct": 1518271791413,
@@ -91,7 +91,7 @@
   },
   {
     "id": 11,
-    "views": 1,
+    "views": 2,
     "title": "CNode要招聘了",
     "content": "招聘全栈工程师\r\nbest",
     "ct": 1518272209139,
@@ -101,7 +101,7 @@
   },
   {
     "id": 12,
-    "views": 0,
+    "views": 1,
     "title": "各种offer发布啦",
     "content": "详情查百度",
     "ct": 1518272293962,

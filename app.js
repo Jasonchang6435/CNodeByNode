@@ -91,9 +91,6 @@ if (require.main === module) {
 /*
 TODO
 * new user profile need upload headimg
-* navibar need to jump user profile
-*
-* nunjucks template
 *
 * sudo lsof -i:3000
 * sudo kill -9 980

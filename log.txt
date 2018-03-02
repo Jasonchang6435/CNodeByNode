@@ -252,3 +252,50 @@
 21:52:46 如果登录了就什么都不做, 继续下一个请求函数
 22:11:11 如果登录了就什么都不做, 继续下一个请求函数
 22:46:54 listening server at http://127.0.0.1:3000
+8:59:49 listening server at http://127.0.0.1:3000
+11:6:31 debug u,{
+  "id": 3,
+  "username": "doge",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": ""
+}
+11:11:5 如果登录了就什么都不做, 继续下一个请求函数
+11:11:13 如果登录了就什么都不做, 继续下一个请求函数
+11:11:13 debug request file,[object Object]
+11:11:13 debug u,{
+  "id": 3,
+  "username": "doge",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "4cb4bbcabbad4e0760d8ccd269d81281"
+}
+11:11:13 如果登录了就什么都不做, 继续下一个请求函数
+11:11:38 如果登录了就什么都不做, 继续下一个请求函数
+11:13:0 如果登录了就什么都不做, 继续下一个请求函数
+11:15:2 如果登录了就什么都不做, 继续下一个请求函数
+11:20:1 listening server at http://127.0.0.1:3000
+11:20:24 如果登录了就什么都不做, 继续下一个请求函数
+11:20:59 如果登录了就什么都不做, 继续下一个请求函数
+11:21:50 debug u,{
+  "id": 3,
+  "username": "doge",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "avatar": "",
+  "role": 2
+}
+11:22:46 listening server at http://127.0.0.1:3000
+11:23:16 listening server at http://127.0.0.1:3000
+11:23:56 如果登录了就什么都不做, 继续下一个请求函数
+11:24:30 如果登录了就什么都不做, 继续下一个请求函数
+11:25:24 debug u,{
+  "id": 2,
+  "username": "test",
+  "password": "6aa61ba1213b734b79cd659110994562d085d326",
+  "note": "",
+  "role": 2,
+  "avatar": "4ad0d111ceaca295a2bcf4fc57abfce5"
+}

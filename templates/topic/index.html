@@ -16,65 +16,36 @@
 <body>
 <!-- navbar -->
 {% include "fragments/navigator.html" %}
-<!--<div class="navbar">-->
-    <!--<div class="navbar-inner">-->
-        <!--<div class="container">-->
-            <!--<a class="brand" href="/">-->
-                <!--<img src="http://o4j806krb.qnssl.com/public/images/cnodejs_light.svg">-->
-            <!--</a>-->
-            <!--<form id="search_form" class="navbar-search" action="/search">-->
-                <!--<input type="text" id="q" name="q" class="search-query span3" value="" disabled="disabled" placeholder="不给用~">-->
-            <!--</form>-->
-            <!--<ul class="nav pull-right">-->
-                <!--<li><a href="/">首页</a></li>-->
-                <!--<li><a href="/getstart">新手入门</a></li>-->
-                <!--<li><a href="/api">API</a></li>-->
-                <!--<li><a href="/about" target="">关于</a></li>-->
-                <!--{% if user.username == "游客" %}-->
-                <!--<li><a href="/register">注册</a></li>-->
-                <!--<li><a href="/login">登录</a></li>-->
-                <!--{% else %}-->
-                <!--<li><a>用户: {{ user.username }}</a></li>-->
-                <!--<li><a href="/logout">注销</a></li>-->
-                <!--{% endif %}-->
-            <!--</ul>-->
-            <!--<a class="btn btn-navbar" id="responsive-sidebar-trigger">-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 <div id="main">
     <div id="sidebar">
-        {% if user.username == "游客" %}
-        <div class="panel">
-            <div class="inner">
-                <p>CNode：Node.js专业中文社区</p>
-                <div>
-                    您可以
-                    <a href="/login">登录</a>
-                    或
-                    <a href="/register">注册</a>
-                    , 也可以
-                    <a>
-                      <span class="span-info">
-                        通过 GitHub 登录
-                      </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        {% else %}
-        <div class="panel">
-            <div class="inner">
-                <a href="/topic/new" class="create_topic_btn">
-                    <span class="span-success">发布话题</span>
-                </a>
-            </div>
-        </div>
-        {% endif %}
+        {% include "fragments/sidebar.html" %}
+        <!--{% if user.username == "游客" %}-->
+        <!--<div class="panel">-->
+            <!--<div class="inner">-->
+                <!--<p>CNode：Node.js专业中文社区</p>-->
+                <!--<div>-->
+                    <!--您可以-->
+                    <!--<a href="/login">登录</a>-->
+                    <!--或-->
+                    <!--<a href="/register">注册</a>-->
+                    <!--, 也可以-->
+                    <!--<a>-->
+                      <!--<span class="span-info">-->
+                        <!--通过 GitHub 登录-->
+                      <!--</span>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--{% else %}-->
+        <!--<div class="panel">-->
+            <!--<div class="inner">-->
+                <!--<a href="/topic/new" class="create_topic_btn">-->
+                    <!--<span class="span-success">发布话题</span>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--{% endif %}-->
         <div class="panel">
             <div class="inner ads">
                 <a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">

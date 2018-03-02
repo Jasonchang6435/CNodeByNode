@@ -10,7 +10,7 @@ class User extends Model {
         this.note = form.note || ''
         this.role = 2
         // 添加头像的路径, 默认应该放一张头像的, 这里直接用一个空字符串表示
-        this.avatar = ''
+        this.avatar = form.avatar || '4cb4bbcabbad4e0760d8ccd269d81281'
     }
 
     static create(form={}) {

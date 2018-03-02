@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>user page</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/lib/editor/editor.css">
+    <link rel="stylesheet" href="/static/lib/webuploader/webuploader.css">
+    <script src="/static/lib/jquery-3.0.0.min.js"></script>
+    <script src="/static/lib/markdownit.js"></script>
+    <script src="/static/lib/webuploader/webuploader.withoutimage.js"></script>
+    <script src="/static/lib/editor/editor.js"></script>
+    <script src="/static/lib/editor/ext.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
     <style>
         .avatar {
             max-width: 100px;
@@ -11,23 +21,253 @@
     </style>
 </head>
 <body>
-    <h3>用户资料</h3>
-    <p>{{ user.id }}</p>
-    <p>{{ user.username }}</p>
-    <p>{{ user.password }}</p>
-    <p>
-        <img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">
-    </p>
-    <div>
-        <h3>上传头像</h3>
-        <!--如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"-->
-        <form action="/user/upload/avatar" method="post" enctype="multipart/form-data">
-            <p>
-                <input id="upload-file" type="file" name="avatar" required>
-            </p>
-            <button id="submit-button">上传</button>
-        </form>
+    <!-- navbar -->
+    {% include "fragments/navigator.html" %}
+    <div id="main">
+        <div id="sidebar">
+            {% include "fragments/sidebar.html" %}
+            <div class="panel">
+                <div class="inner ads">
+                    <a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">
+                        <img src="//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=cnodejs&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=cnodejs" target="_blank" class="banner sponsor_outlink" data-label="ucloud-banner">
+                        <img src="//dn-cnode.qbox.me/FgQS-GQDfqwAD_v0NuhyYUOUk5MG">
+                    </a>
+                    <div class="sep10"></div>
+                    <a href="https://0x7.me/UDyj" target="_blank" class="banner sponsor_outlink" data-label="qiniu-sidebar">
+                        <img src="//dn-cnode.qbox.me/Fv9R31Y6ySKKJi95ldk9TRkJ7o5O">
+                    </a>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">无人回复的话题</span>
+                </div>
+                <div class="inner">
+                    <ul class="unstyled">
+                        <li>
+                            <div><a class="dark topic_title" href="/topic/5a96f2068d6e16e56bb80a11" title="快速排序（《图解算法》笔记）">快速排序（《图解算法》笔记）</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div><a class="dark topic_title" href="/topic/5a96e563653c43b91468513d" title="基于vue的记事本应用 vuememo - 更新">基于vue的记事本应用 vuememo - 更新</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div><a class="dark topic_title" href="/topic/5a96cb692580af301494a941" title="require的探究">require的探究</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div><a class="dark topic_title" href="/topic/5a967cc071327bb413bbff78" title="求助:npm 报错 Error: EEXIST: file already exists, mkdir">求助:npm 报错 Error: EEXIST: file already exists, mkdir</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div><a class="dark topic_title" href="/topic/5a9660e3653c43b9146850fb" title="nodejs开发接口自动化测试03-用户登录问题">nodejs开发接口自动化测试03-用户登录问题</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">积分榜</span>
+                    &nbsp;
+                    <a class="dark" href="/users/top100">TOP 100 &gt;&gt;</a>
+                </div>
+                <div class="inner">
+                    <ol>
+                        <li>
+                            <span class="top_score">20830</span>
+                            <span class="user_name"><a href="/user/i5ting">i5ting</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">14815</span>
+                            <span class="user_name"><a href="/user/alsotang">alsotang</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">9330</span>
+                            <span class="user_name"><a href="/user/leapon">leapon</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">8735</span>
+                            <span class="user_name"><a href="/user/jiyinyiyong">jiyinyiyong</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">6875</span>
+                            <span class="user_name"><a href="/user/yakczh">yakczh</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">6180</span>
+                            <span class="user_name"><a href="/user/imhered">imhered</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">5940</span>
+                            <span class="user_name"><a href="/user/DevinXian">DevinXian</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">5305</span>
+                            <span class="user_name"><a href="/user/magicdawn">magicdawn</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">4740</span>
+                            <span class="user_name"><a href="/user/captainblue2013">captainblue2013</a></span>
+                        </li>
+                        <li>
+                            <span class="top_score">4555</span>
+                            <span class="user_name"><a href="/user/fengmk2">fengmk2</a></span>
+                        </li>
+
+                    </ol>
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">友情社区</span>
+                </div>
+                <div class="inner">
+                    <ol class="friendship-community">
+                        <li>
+                            <a href="https://ruby-china.org/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/ruby-china-20150529.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="http://golangtc.com/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/golangtc-logo.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="http://phphub.org/" target="_blank">
+                                <img src="//o4j806krb.qnssl.com/public/images/phphub-logo.png">
+                            </a>
+                        </li>
+                        <div class="sep10"></div>
+                        <li>
+                            <a href="https://testerhome.com/" target="_blank">
+                                <img src="//dn-cnode.qbox.me/FjLUc7IJ2--DqS706etPQ1EGajxK">
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">客户端二维码</span>
+                </div>
+                <div class="inner cnode-app-download">
+                    <img width="200" src="//dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU">
+                    <br>
+                    <a href="https://github.com/soliury/noder-react-native" target="_blank">客户端源码地址</a>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div id="content">
+            <div class="panel">
+                <div class="header">
+                    <ul class="breadcrumb">
+                        <li><a href="/">主页</a><span class="divider">/</span></li>
+                    </ul>
+                </div>
+                <div class="inner userinfo">
+                    <div class="user_big_avatar">
+                        <img src="/user/avatar/{{ user.avatar }}" class="user_avatar" title="用户头像">
+                    </div>
+                    <a class="dark">{{ user.username }}</a>
+                    <div class="user_profile">
+                        <ul class="unstyled">
+                            <span class="big">0</span> 积分
+                            <li>
+                                <i class="fa fa-lg fa-fw fa-map-marker"></i>
+                                <span class="dark">用户id：</span>
+                                <a class="dark" target="_blank">{{ user.id }}</a>
+                            </li>
+                            <!--<li>-->
+                                <!--<a class="dark" href="/user/i5ting/collections" target="_blank">-->
+                                    <!--<span class="big collect-topic-count">18</span>个话题收藏-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<i class="fa fa-lg fa-fw fa-home"></i>-->
+                                <!--<a class="dark" href="http://i5ting.com" target="_blank">http://i5ting.com</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<i class="fa fa-lg fa-fw fa-map-marker"></i>-->
+                                <!--<span class="dark">北京</span>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<i class="fa fa-lg fa-fw fa-github"></i>-->
+                                <!--<a class="dark" href="https://github.com/i5ting" target="_blank">-->
+                                    <!--@i5ting-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<i class="fa fa-lg fa-fw fa-twitter"></i>-->
+                                <!--<a class="dark" href="shit微博" target="_blank">shit微博</a>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>上传头像</h3>
+                        <!--如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"-->
+                        <form action="/user/upload/avatar" method="post" enctype="multipart/form-data">
+                            <p>
+                                <input id="upload-file" type="file" name="avatar" required>
+                            </p>
+                            <button id="submit-button" class="span-primary">上传</button>
+                        </form>
+                    </div>
+                    <!--<p class="col_fade">注册时间 </p>-->
+                </div>
+            </div>
+
+            <!--<div class="panel">-->
+                <!--<div class="header">-->
+                    <!--<h3>用户资料</h3>-->
+                    <!--<p>{{ user.id }}</p>-->
+                    <!--<p>{{ user.username }}</p>-->
+                    <!--<p>{{ user.password }}</p>-->
+                    <!--<p>-->
+                        <!--<img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">-->
+                    <!--</p>-->
+                    <!--<div>-->
+                        <!--<h3>上传头像</h3>-->
+                        <!--&lt;!&ndash;如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"&ndash;&gt;-->
+                        <!--<form action="/user/upload/avatar" method="post" enctype="multipart/form-data">-->
+                            <!--<p>-->
+                                <!--<input id="upload-file" type="file" name="avatar" required>-->
+                            <!--</p>-->
+                            <!--<button id="submit-button" class="span-primary">上传</button>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
     </div>
+    <!--<h3>用户资料</h3>-->
+    <!--<p>{{ user.id }}</p>-->
+    <!--<p>{{ user.username }}</p>-->
+    <!--<p>{{ user.password }}</p>-->
+    <!--<p>-->
+        <!--<img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">-->
+    <!--</p>-->
+    <!--<div>-->
+        <!--<h3>上传头像</h3>-->
+        <!--&lt;!&ndash;如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"&ndash;&gt;-->
+        <!--<form action="/user/upload/avatar" method="post" enctype="multipart/form-data">-->
+            <!--<p>-->
+                <!--<input id="upload-file" type="file" name="avatar" required>-->
+            <!--</p>-->
+            <!--<button id="submit-button">上传</button>-->
+        <!--</form>-->
+    <!--</div>-->
     <script src="/static/js/upload.js"></script>
 </body>
 </html>
